@@ -13,13 +13,16 @@ legend left
 	<i>Uses</i> - Class A <i>uses</i> class B when A calls public 
 		methods of B in order to query the state of B, and then
 		uses that information to influence the behaviour of A.
+	<i>Commands</i> - Class A <i>commands</i> class B when B queries
+		A to determine what action is taken.
 endlegend
 
 class Combat {
+	reward : Inventory
 	turn()
 }
 Combat "2" *-down- Combatants
-Combat -down-> Environment : uses
+Combat -right-> Environment : uses
 
 class Combatants {
 	move()
@@ -37,8 +40,9 @@ Combatant "1" *-down- MoveList
 Combatant "0..n" o-down- Equipment
 
 class HumanCombatant
-HumanCombatant -right-|> Combatant
-HumanCombatant -up-|> Player
+HumanCombatant -left-|> Combatant
+HumanCombatant -right-|> Player
+HumanCombatant -down-> NPCCombatant : commands
 
 class Player <<external>>
 
@@ -48,7 +52,9 @@ AICombatant -left-|> Combatant
 class EnemyCombatant
 EnemyCombatant -up-|> AICombatant
 
-class NPCCombatant
+class NPCCombatant {
+	command()
+}
 NPCCombatant -up-|> AICombatant
 
 class Inventory <<external>>
@@ -61,7 +67,7 @@ MoveList -right-> Inventory : uses
 
 class Move
 
-class Equipment <<externam>>
+class Equipment <<external>>
 
 class Environment <<external>>
 
