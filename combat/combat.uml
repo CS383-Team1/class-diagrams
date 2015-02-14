@@ -6,13 +6,24 @@ title Combat Subsystem Class Diagram
 legend left
 	Authored: Mason Fabel
 	Reviewed: <i>none</i>
-	<b>Player</b> and <b>Inventory</b> classes belong to other submodules.
+
+	External Classes: Environment, Equipment, Inventory, Player
+
+	Definitions:
+	<i>Uses</i> - Class A <i>uses</i> class B when A calls public 
+		methods of B in order to query the state of B, and then
+		uses that information to influence the behaviour of A.
 endlegend
 
-class Combat
+class Combat {
+	turn()
+}
 Combat "2" *-down- Combatants
+Combat -down-> Environment : uses
 
-class Combatants
+class Combatants {
+	move()
+}
 Combatants "*" o-down- Combatant
 
 class Combatant {
@@ -23,6 +34,7 @@ class Combatant {
 }
 Combatant "1" *-down- Inventory
 Combatant "1" *-down- MoveList
+Combatant "0..n" o-down- Equipment
 
 class HumanCombatant
 HumanCombatant -right-|> Combatant
@@ -41,10 +53,16 @@ NPCCombatant -up-|> AICombatant
 
 class Inventory <<external>>
 
-class MoveList
+class MoveList {
+	default : Move
+}
 MoveList "1..n" o-down- Move
 MoveList -right-> Inventory : uses
 
 class Move
+
+class Equipment <<externam>>
+
+class Environment <<external>>
 
 @enduml
