@@ -1,4 +1,42 @@
 @startuml
 hide circle
-class foo
+
+class Combat
+Combat "2" *-down- Combatants
+
+class Combatants
+Combatants "*" o-down- Combatant
+
+class Combatant {
+	HP : Integer
+	Mana : Integer
+	Speed : Integer
+	move()
+}
+Combatant "1" *-down- Inventory
+Combatant "1" *-down- MoveList
+
+class HumanCombatant
+HumanCombatant -right-|> Combatant
+HumanCombatant -up-|> Player
+
+class Player <<external>>
+
+class AICombatant
+AICombatant -left-|> Combatant
+
+class EnemyCombatant
+EnemyCombatant -up-|> AICombatant
+
+class NPCCombatant
+NPCCombatant -up-|> AICombatant
+
+class Inventory <<external>>
+
+class MoveList
+MoveList "1..n" o-down- Move
+MoveList -right-> Inventory : uses
+
+class Move
+
 @enduml
