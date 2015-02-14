@@ -1,5 +1,13 @@
 @startuml
 hide circle
+skinparam shadowing false
+
+title Combat Subsystem Class Diagram
+legend left
+	Authored: Mason Fabel
+	Reviewed: <i>none</i>
+	<b>Player</b> and <b>Inventory</b> classes belong to other submodules.
+endlegend
 
 class Combat
 Combat "2" *-down- Combatants
