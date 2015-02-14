@@ -31,7 +31,7 @@ Combatants "*" o-down- Combatant
 
 class Combatant {
 	HP : Integer
-	Mana : Integer
+	Caffeine : Integer
 	Speed : Integer
 	move()
 }
