@@ -1,0 +1,36 @@
+@startuml
+title State Subsystem Class Diagram
+
+legend left
+Authored: Lance Wells
+Reviewed: <i>none</i>
+External Classes: 
+Definitions:
+<i>Accesses</i> - Class A <i>accesses</i> class B 
+when class A calls a method of class B's 
+requesting read-write access.
+<i>Commands</i> - Class A <i>changes</i> class B 
+when class A changes information stored
+in class B.
+endlegend
+
+class Buttons {
+	+ accessMenuOptions()
+}
+class "Main Menu" {
+	+ closeGame()
+}
+class Submenu {
+}
+class "Save File" {
+	+ save()
+	+ load()
+}
+class "Game State" {
+}
+Buttons                -up-*     "Main Menu"
+Buttons                -up-*     "Submenu"
+"Main Menu"            <|-right- "Submenu"
+Submenu     "Accesses" -down-    "Save File"
+"Save File" "Changes"  -down-   "Game State"
+@enduml
