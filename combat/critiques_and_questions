@@ -1,0 +1,14 @@
+Tessa Saul's Combat Diagram Review: 
+
+The plain arrows are user defined associations, correct?
+
+I do not think the HumanCombantant should inherit from Player: I think it should be a user defined association because a human player is not themselves a class.  
+
+The MoveList should be aggregated from (contain) the equipment/inventory list: if you have a staple gun, you may staple someone 
+MoveList should be associated with skills/stats: if you have a high enough coding, you can make a virus
+
+I think that inventory should contain equipment. 
+
+flow of this diagram is mainly L shaped. if possible, we should shift it more either horizontal or vertical, like we talked about in class. 
+
+Combatant could have a useItem() method.
