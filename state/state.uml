@@ -6,11 +6,11 @@ Edited: Robin Rakowski
 Reviewed: <i>none</i>
 External Classes:
 Definitions:
-<i>Accesses</i> - Class A <i>accesses</i> class B
-when class A calls a method of class B's
+<i>Accesses</i> - Class A <i>accesses</i> class B when class A calls 
+a method of class B's
 requesting read-write access.
-<i>Commands</i> - Class A <i>changes</i> class B
-when class A changes information stored
+<i>Commands</i> - Class A <i>changes</i> class B when class A 
+changes information stored
 in class B.
 endlegend
 class Buttons {
@@ -28,18 +28,17 @@ class "Save File" {
 + save()
 + load()
 }
-
 class "New Game Menu" {
 + selectClass()
 + selectRace()
 + selectMode()
 }
-
 class "Game State" {
 }
 Buttons -up-* "Main Menu"
 Buttons -up-* "Submenu"
-"Main Menu" <|-right- "Submenu"
+Buttons -up-* "New Game Menu"
+"Main Menu" <|-left- "Submenu"
 "Main Menu" <|-right- "New Game Menu"
 Submenu "Accesses" -down- "Save File"
 "Save File" "Changes" -down- "Game State"
