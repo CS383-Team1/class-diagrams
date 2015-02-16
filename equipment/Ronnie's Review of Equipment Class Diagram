@@ -1,1 +1,13 @@
-% Review Forthcoming
+1.) Just for the sake of convention, function names overwhelmingly 
+        begin with a lower-case letter, and classes with an upper-case.
+        
+2.) I think having Inventory be the main class with 'Items' inheriting from it is good.
+        From there, though, do you think that maybe it would be good to split it up 
+        a bit more in regards to the classes inheriting from Items? Like, what if we
+        had a 'Weapons', 'Support Items', and maybe 'Crafting Materials' classes that 
+        inherit from Items? Just an idea, lemme know what you think.
+
+3.) Could you fill me in on what the 'Work Project' class inheriting from Items is, exactly?
+    Also, could you let me know the difference between the arrows that you are using?
+
+4.) I think the design is clean. Looks real good. 
