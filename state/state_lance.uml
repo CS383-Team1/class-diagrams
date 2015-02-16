@@ -1,36 +1,47 @@
 @startuml
 title State Subsystem Class Diagram
-
 legend left
 Authored: Lance Wells
+Edited: Robin Rakowski
 Reviewed: <i>none</i>
-External Classes: 
+External Classes:
 Definitions:
-<i>Accesses</i> - Class A <i>accesses</i> class B 
-when class A calls a method of class B's 
+<i>Accesses</i> - Class A <i>accesses</i> class B
+when class A calls a method of class B's
 requesting read-write access.
-<i>Commands</i> - Class A <i>changes</i> class B 
+<i>Commands</i> - Class A <i>changes</i> class B
 when class A changes information stored
 in class B.
 endlegend
-
 class Buttons {
-	+ accessMenuOptions()
++ accessMenuOptions()
 }
 class "Main Menu" {
-	+ closeGame()
++ closeGame()
++ newGame()
++ loadGame()
++ joinGame()
 }
 class Submenu {
 }
 class "Save File" {
-	+ save()
-	+ load()
++ save()
++ load()
 }
+
+class "New Game Menu" {
++ selectClass()
++ selectRace()
++ selectMode()
+}
+
 class "Game State" {
 }
-Buttons                -up-*     "Main Menu"
-Buttons                -up-*     "Submenu"
-"Main Menu"            <|-right- "Submenu"
-Submenu     "Accesses" -down-    "Save File"
-"Save File" "Changes"  -down-   "Game State"
+Buttons -up-* "Main Menu"
+Buttons -up-* "Submenu"
+"Main Menu" <|-right- "Submenu"
+"Main Menu" <|-right- "New Game Menu"
+Submenu "Accesses" -down- "Save File"
+"Save File" "Changes" -down- "Game State"
+"New Game Menu" "Changes" -down- "Game State"
 @enduml
