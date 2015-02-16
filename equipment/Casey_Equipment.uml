@@ -1,0 +1,52 @@
+@startuml
+
+title Equipment
+hide circles
+
+legend left
+	Authored: Casey Blair
+	Reviewed: <i>none</i>
+
+	External Classes: Player
+
+endlegend
+class Player <<external>>
+
+class Inventory {
+SelectItem()
+MoveItem()
+EquipItem()
+RemoveItem()
+ShowPlayerAttributes()
+MaxItems : integer
+}
+
+class Item{
+Acquire()
+Sell()
+Buy()
+Trade()
+Name : String
+Description : String
+}
+
+class Weapon{
+Upgrade()
+Use()
+Damage : int
+}
+
+class WorkProject{
+TurnInProject()
+WorkOnProject()
+AbandonProject()
+PercentComplete : integer
+}
+
+
+Player "0..1" *-- "1..1" Inventory
+Inventory o-- "0..*" Item
+Item <|-- Weapon
+Item <|-- WorkProject
+
+@enduml
