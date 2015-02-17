@@ -5,9 +5,9 @@ skinparam shadowing false
 title Combat Subsystem Class Diagram
 legend left
 	Authored: Mason Fabel
-	Reviewed: <i>none</i>
+	Reviewed: Tessa Saul
 
-	External Classes: Environment, Equipment, Inventory, Player
+	External Classes: Environment, Inventory, Player
 
 	Definitions:
 	<i>Uses</i> - Class A <i>uses</i> class B when A calls public 
@@ -37,7 +37,7 @@ class Combatant {
 }
 Combatant "1" *-down- Inventory
 Combatant "1" *-down- MoveList
-Combatant "0..n" o-down- Equipment
+
 
 class HumanCombatant
 HumanCombatant -left-|> Combatant
@@ -65,9 +65,9 @@ class MoveList {
 MoveList "1..n" o-down- Move
 MoveList -right-> Inventory : uses
 
+
 class Move
 
-class Equipment <<external>>
 
 class Environment <<external>>
 
