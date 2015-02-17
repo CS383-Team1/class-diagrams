@@ -1,18 +1,45 @@
 1.) Just for the sake of convention, function names overwhelmingly 
         begin with a lower-case letter, and classes with an upper-case.
         
+	--Whoops, my bad. Don't know why I did that. 
+
 2.) I think having Inventory be the main class with 'Items' inheriting from it is good.
         From there, though, do you think that maybe it would be good to split it up 
         a bit more in regards to the classes inheriting from Items? Like, what if we
         had a 'Weapons', 'Support Items', and maybe 'Crafting Materials' classes that 
         inherit from Items? Just an idea, lemme know what you think.
 
+	--Sounds good: those are some good ideas for subclasses of Items. I was just trying to come up with possible specific items we would use in our particular 
+	setting, and I wasn't really sure what to include. I wasn't sure about the "WorkProject" class, but it seemed to me that in the first setting in our game 
+	that there would be a possibility to do "Competitive Job Performance" per Dr. Jeffery's requirements, so that would entail doing some kind of actual office 
+	work in the game. So that was where I got that class from.
+	
+	I think the "Support Items" and "Crafting Materials" classes would be a good addition too. I can add those tomorrow.
+
+	As it is Inventory is just an aggregation of Items, and Items is not actually inheriting anything from Inventory. There wasn't any attributes or functions that 
+	I needed from the Inventory class in Items, so I just made it an aggregation. But Weapons and WorkProject are subclasses of Items, so there is inheritance. 
+	
+
 3.) We currently have a showPlayerAttributes() method under the Inventory class. 
         Should this method be here? Showing player attributes seems like it would 
         be better suited for the Level Up class, right? 
 
+	--Yeah, there probably should be a "show attributes" method in the Level Up class too. I was just going off the assumption that when the inventory was opened 
+	there would be either a tab to open or part of the screen would show player stats too. That way the player could be able to see what level his attributes are 
+	at anytime. I guess it really depends on what design we want: we definitely need a "show attributes" function for leveling up, but it might be beneficial to 
+	let the user be able to see what his current stats are at any given time in the inventory too so they can maybe decide which "Quests" or objectives they want 
+	to pursue.
+
+	Since there is a "stats" class we could just make a "stats" object in the Inventory class and use the "view_stats" method in the stats class if we want to see
+	the player's attributes in the inventory. If not I can just remove this method.  
+
 4.) Under the Weapon subclass, there is a use() method. I think the method of using
         your weapon would be better suited for the Combat class, not the equipment 
         class. 
+	
+	--Ok, yeah I wasn't sure exactly where that should go: in the Weapon class or combat class. The combat class will probably have to access the "Damage" attribute
+	to know how much damage to deal out. 
 
 5.) I think the design is clean. Looks real good. 
+
+	--Awesome, thanks! I appreciate the feedback, and I will make the changes tomorrow afternoon.
