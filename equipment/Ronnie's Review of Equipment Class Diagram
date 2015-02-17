@@ -13,6 +13,6 @@
 
 4.) Under the Weapon subclass, there is a use() method. I think the method of using
         your weapon would be better suited for the Combat class, not the equipment 
-        class. Unless, of course, you meant equip item. 
+        class. 
 
 5.) I think the design is clean. Looks real good. 
