@@ -1,0 +1,83 @@
+fabe0940
+Welcome. 
+sault
+hi 
+fabe0940
+I responded to your review of the combat diagram; did you see that? 
+sault
+yes I did 
+fabe0940
+Alright. Let's see there... 
+sault
+Maybe player is a class, I assumed it meant the real person 
+fabe0940
+Yeah, that's the first thing. 
+I don't really have a preference. 
+I just was on autopilot and making classes for everything. 
+So the question is, do we need to associate all the various models of the player with each other, or can they all be run seperately by the different systems? 
+Also, do they need to influence each other? 
+sault
+I don't know 
+fabe0940
+I'm inclined to think that they might influence each other. 
+Plus, then you can share classes like Inventory among systems. 
+Still... that could go either way. 
+Perhaps ask the group as a whole? 
+sault
+Wouldn't they player just be one big thing that can do all of the stuff? we are just describing one part 
+fabe0940
+Yeah. 
+I suppose it probably is best to keep things seperate as a defauly... 
+Yeah, I do like that better. Thanks. 
+Next is... Inventories. 
+Are they owned by a MoveList or are they used by a MoveList, or some other relation? 
+sault
+Used by movelist 
+Associated, but not owned i think 
+fabe0940
+Alright. Makes sense to me. 
+Next is... Inventory and Equipment. 
+I'm curious why keeping equipment in the inventory is better. 
+It feels odd to me, but that doesn't mean it's wrong. 
+sault
+I always thought of the inventory as all the stuff you have, and equipment the things you are wearing out of those things, but if we have a team on inventory, then it probably doesnt matter 
+fabe0940
+Actually... that's a good point. 
+Let me go look at their stuff. 
+Mm. They don't make a distinction. 
+Let's scratch the Equipment, in that case? 
+sault
+sure 
+fabe0940
+Although their diagram is missing stuff, so they're probably not finished. 
+I hope they're not finished... 
+Anyways. 
+Diagram Layout. 
+Yeah, something clearer would be better, but I can't see a good way to do it. 
+sault
+Looking at it again, I can see the flow better 
+fabe0940
+Well, I did try it a few times. Still unhappy, especially with that curved arrow. 
+sault
+Should we make separate diagrams for inheretence and other relations? 
+Its so little stuff that I dont think it would b worth the time, but it might make it look prettier 
+fabe0940
+Yeah, it might. 
+Or, at least, moving inheritance to it's own document. 
+fabe0940
+So that leaves Combatant having a useItem() method. 
+sault
+It the items are associated to the movelist, then I think we can leave it out 
+fabe0940
+Easy enough. 
+That about covers everything mentioned earlier. 
+Any other thoughts or ideas? 
+Also, which one of us wants to go make these changes now? 
+sault
+I can't think of anything else, and I can do it, but im going to have to get off the computer in a sec, but I will be back on soon 
+fabe0940
+Sure. 
+If you'll do it, then that's great. 
+Thanks. 
+sault
+yep. 
