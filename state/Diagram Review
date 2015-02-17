@@ -1,0 +1,10 @@
+Tyler Wittreich State Diagram Review:
+
+1) Should “main menu” point to “new game menu” instead of the other way?
+
+2) After someone chooses a function in main menu, does it then go to an external main subsystem class?
+
+4) I was wondering if some of these functions in the class point to different states in the game? 
+  ex(combat, environment, task/quest, meeting, …)
+
+5) I was wondering if there are any connections from this main sub system class to any other external subsystem classes? I created the advancement uml and after different advancements, I had it point to the external state class for saving purposes. I do not know if there should be any connections, but just something to think about.
