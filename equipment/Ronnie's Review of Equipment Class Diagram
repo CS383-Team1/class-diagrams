@@ -7,7 +7,13 @@
         had a 'Weapons', 'Support Items', and maybe 'Crafting Materials' classes that 
         inherit from Items? Just an idea, lemme know what you think.
 
-3.) Could you fill me in on what the 'Work Project' class inheriting from Items is, exactly?
-    Also, could you let me know the difference between the arrows that you are using?
+3.) We currently have a showPlayerAttributes() method under the Inventory class. 
+        Should this method be here? Showing player attributes seems like it would 
+        be better suited for the Level Up class, right? 
 
-4.) I think the design is clean. Looks real good. 
+4.) Under the Weapon subclass, there is a use() method. I think the method of using
+        your weapon would be better suited for the Combat class, not the equipment 
+        class. Unless, of course, you meant equip item, which, if you did, we should 
+        move the equipItem() method from the Item class. 
+
+5.) I think the design is clean. Looks real good. 
