@@ -1,8 +1,7 @@
 @startuml
 title State Subsystem Class Diagram
 legend left
-Authored: Lance Wells
-Edited: Robin Rakowski
+Authored: Robin Rakowski, Lance Wells
 Reviewed: <i>none</i>
 External Classes:
 Definitions:
