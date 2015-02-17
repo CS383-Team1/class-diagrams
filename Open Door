@@ -1,0 +1,18 @@
+@startuml
+title Open Door
+
+class Door{
+        DoorState : Boolean
+        require a Key : Boolean
+        openDoor()
+        closeDoor()
+
+
+
+}  
+Door *-down- Edoor
+class Edoor {
+        
+} 
+
+@enduml
