@@ -14,6 +14,6 @@
 4.) Under the Weapon subclass, there is a use() method. I think the method of using
         your weapon would be better suited for the Combat class, not the equipment 
         class. Unless, of course, you meant equip item, which, if you did, we should 
-        move the equipItem() method from the Item class. 
+        move the equipItem() method from the Inventory class. 
 
 5.) I think the design is clean. Looks real good. 
