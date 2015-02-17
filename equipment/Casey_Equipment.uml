@@ -13,34 +13,34 @@ endlegend
 class Player <<external>>
 
 class Inventory {
-SelectItem()
-MoveItem()
-EquipItem()
-RemoveItem()
-ShowPlayerAttributes()
-MaxItems : integer
+selectItem()
+moveItem()
+equipItem()
+removeItem()
+showPlayerAttributes()
+maxItems : integer
 }
 
 class Item{
-Acquire()
-Sell()
-Buy()
-Trade()
+acquire()
+sell()
+buy()
+trade()
 Name : String
 Description : String
 }
 
 class Weapon{
-Upgrade()
-Use()
+upgrade()
+use()
 Damage : int
 }
 
 class WorkProject{
-TurnInProject()
-WorkOnProject()
-AbandonProject()
-PercentComplete : integer
+turnInProject()
+workOnProject()
+abandonProject()
+percentComplete : integer
 }
 
 
