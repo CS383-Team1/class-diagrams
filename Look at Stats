@@ -1,0 +1,12 @@
+@startuml
+title Look at Stats 
+
+class Stats{
+        HP : Integer
+	Caffeine : Integer
+	Speed : Integer
+
+}  
+
+
+@enduml
