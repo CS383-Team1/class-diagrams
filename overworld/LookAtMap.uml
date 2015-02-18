@@ -1,6 +1,15 @@
 @startuml
 title Look at Map 
 
+legend left
+	Created by: Abdulmajeed Alotaibi
+	Reviewed: 
+
+	Map will display the location for stuff around the player and the world 
+
+	
+endlegend
+
 class Map{
         PlayerLocation : (X,Y)
 	QuestLocation : (X,Y)
