@@ -16,7 +16,6 @@ selectItem()
 moveItem()
 equipItem()
 removeItem()
-showPlayerAttributes()
 maxItems : integer
 }
 
