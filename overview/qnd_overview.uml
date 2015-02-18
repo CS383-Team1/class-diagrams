@@ -40,10 +40,8 @@ class "State" {
 + selectMode()
 }
 
-State -down-|> Overworld
-State -down-|> Equipment
-State -down-|> Combat
-Overworld -right-|> Equipment
-Equipment -right-|> Combat
-Combat -right-|> Advancement
-Advancement -up-|> State
+State -down-> Overworld : Holds
+State -down-> Equipment : Holds
+Equipment -right-> Combat : Used For
+Combat -right-> Advancement : Leads To
+Advancement -up-> State : Changes
