@@ -1,0 +1,65 @@
+\documentclass[12pt]{article}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{titling}
+
+\newcommand{\subtitle}[1]{
+        \posttitle{
+                \par\end{center}
+                \begin{center}\large#1\end{center}
+                \vskip0.5em}
+}
+
+\newlength\tindent
+\setlength{\tindent}{\parindent}
+\setlength{\parindent}{0pt}
+\renewcommand{\indent}{\hspace*{\tindent}}
+
+\geometry{margin=1in}
+
+\setcounter{tocdepth}{2}
+
+\title{Class Diagrams}
+\subtitle{CS 383 - Team \texttt{\textasciicircum teamname}}
+\date{\today}
+\author{
+Abdulmajeed Alotaibi - \textit{alot4458@vandals.uidaho.edu} \\
+\and Casey Blair - \textit{blai1919@vandals.uidaho.edu} \\
+\and Mason Fabel - \textit{fabe0940@vandals.uidaho.edu} \\
+\and Arthur Putnam - \textit{putn0266@vandals.uidaho.edu} \\
+\and Robin Rakowski - \textit{rako4161@vandals.uidaho.edu} \\
+\and Ronald Rodriguez - \textit{rodr3849@vandals.uidaho.edu} \\
+\and Tessa Saul - \textit{saul7812@vandals.uidaho.edu} \\
+\and Lance Wells - \textit{well3112@vandals.uidaho.edu} \\
+}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+Document Typsetting and Editing: \textbf{Mason Fabel}
+\clearpage
+
+\section{Overview}
+\includegraphics[width=\textwidth]{overview.png}
+
+\section{Advancement}
+\includegraphics[height=\textheight]{advancement.png}
+
+\section{Combat}
+\includegraphics[width=\textwidth]{combat.png}
+
+\section{Equipment}
+\includegraphics[width=\textwidth]{equipment.png}
+
+\section{Overworld}
+\includegraphics[width=\textwidth]{overworld-1.png}
+\includegraphics[width=\textwidth]{overworld-2.png}
+\includegraphics[width=\textwidth]{overworld-3.png}
+\includegraphics[width=\textwidth]{overworld-4.png}
+
+\section{State}
+\includegraphics[height=\textheight]{state.png}
+
+\end{document}
