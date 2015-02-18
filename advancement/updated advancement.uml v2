@@ -61,7 +61,7 @@ ask_worker_to_follow_you()
 
 
 class Social_actions{
-work_rating : int
+social_rating : int
 verbal_jousting()
 photobomb()
 prank()
