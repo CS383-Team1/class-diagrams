@@ -1,5 +1,14 @@
 @startuml
 title Look at Stats 
+legend left
+	Created by: Abdulmajeed Alotaibi
+	Reviewed: 
+
+	the stat for player that can be seen
+        by the player.
+
+	
+endlegend
 
 class Stats{
         HP : Integer
