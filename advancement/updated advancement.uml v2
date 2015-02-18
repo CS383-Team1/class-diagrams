@@ -14,7 +14,7 @@ endlegend
 
 
 
-class standing {
+class Standing {
 view_standings()
 update_standings()
 standing : int
@@ -22,14 +22,14 @@ standing : int
 
 
 
-class stats{
+class Stats{
 view_stats()
 View_stats_boost()
 Increase_stats()
 stats : int
 }
 
-class level {
+class Level {
 level : int
 view_level()
 update_level()
@@ -37,19 +37,19 @@ update_level()
 
 
 
-class tasks{
+class Tasks{
 view_task_progression()
 view_task_requirements()
 Progression : int
 }
 
-class social_standing{
+class Social_standing{
 social standing : string
 view_reputation()
 }
 
 
-class reputation{
+class Reputation{
 reputation : int
 view_social_rating()
 view_work_rating()
@@ -59,7 +59,7 @@ ask_worker_to_follow_you()
 }
 
 
-class social_actions{
+class Social_actions{
 work_rating : int
 verbal_jousting()
 photobomb()
@@ -68,14 +68,14 @@ theft()
 complement()
 }
 
-class work_actions{
+class Work_actions{
 work_rating : int
 call_meeting()
 do_paper_work()
 research()
 }
 
-class friends{
+class Friends{
 amount_of_frinds : int
 ask_to_stop_following()
 }
@@ -83,18 +83,18 @@ ask_to_stop_following()
 
 
 
-social_standing <|-- reputation
-reputation <|-- work_actions
-reputation <|-- social_actions
-reputation <|-- friends
+Social_standing <|-- Reputation
+Reputation <|-- Work_actions
+Reputation <|-- Social_actions
+Reputation <|-- Friends
 
-standing <|-- level
-standing <|-- social_standing
-standing <|-- stats
+Standing <|-- Level
+Standing <|-- Social_standing
+Standing <|-- Stats
 
 
-level -- tasks
-level -- social_standing
+Level -- Tasks
+Level -- Social_standing
 
 
 @enduml
