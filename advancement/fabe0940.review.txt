@@ -1,0 +1,23 @@
+First, we should keep all these diagrams consistent with one another.
+Variables and class names should be in CamelCase, whith the first word
+beginning with a lowercase letter for variables and methods and with an
+uppercase letter for classes. In addition, the '%' character is not part of
+a valid identifier in Java, so the variable task_quests:Progression% should
+instead become TaskQuests:progressionPercent.
+
+Also, you are horrifically abusing inheritance here. To put it bluntly,
+combat is not a type of stat, and neither is a quest. Stats aren't levels.
+None of them have anything to do with the state stuff. Standing with
+NPCs have nothing to do with the overworld, and are definitely not an
+extension of an overworld. And then overwork inherits from quests? Circular
+inheritance isn't even a thing. The other ones were absurd, but this is
+blatantly wrong. The only inheritance here that actually might be an
+inheritance is level inheriting from standing.
+
+Finally, the main purpose of the advancement subsystem was to model the
+NPC social network. The concepts of levels and quests are a part of that,
+but a minor or incidental part at best. The entire heart of this subsystem
+is missing.
+
+If you have any questions about these comments, send something to the list
+or jump on the IRC. I'll be around for the rest of the day.
