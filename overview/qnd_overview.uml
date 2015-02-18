@@ -1,0 +1,45 @@
+@startuml
+hide circles
+hide methods
+hide attributes
+title Overview Class Diagram
+legend left
+Authored: team ^teamname
+Reviewed: <i>none</i>
+External Classes:
+Definitions:
+<i>Holds</i> - Class A <i>holds</i> class B when class A is
+required in order to access an object of class B.
+requesting read-write access.
+<i>Used For</i> - Class A is <i>used for</i> class B when class A
+affects objects of class B directly.
+<i>Leads To</i> - Class A <i>leads to</i> class B when class A
+is a class that is necessarily accessed before class B.
+<i>Changes</i> - Class A <i>changes</i> class B when class A
+directly accesses or changes an element of class B.
+
+endlegend
+class "Overworld"{
++ accessMenuOptions()
+}
+class "Equipment" {
++ closeGame()
++ newGame()
++ loadGame()
++ joinGame()
+}
+class "Combat" {
+}
+class "Advancement" {
++ save()
++ load()
+}
+class "State" {
++ selectClass()
++ selectRace()
++ selectMode()
+}
+Overworld "Holds" -down- Equipment
+Equipment "Used For" -down- Combat
+Combat "Leads To" -down- Advancement
+Advancement "Changes" -down- State
