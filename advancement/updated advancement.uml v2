@@ -1,0 +1,100 @@
+@startuml
+
+title Advancement
+hide circles
+
+legend left
+	Authored: Tyler Wittreich
+	Reviewed: Mason Fabel
+
+	External classes:
+
+endlegend
+
+
+
+
+class standing {
+view_standings()
+update_standings()
+standing : int
+}
+
+
+
+class stats{
+view_stats()
+View_stats_boost()
+Increase_stats()
+stats : int
+}
+
+class level {
+level : int
+view_level()
+update_level()
+}
+
+
+
+class tasks{
+view_task_progression()
+view_task_requirements()
+Progression : int
+}
+
+class social_standing{
+social standing : string
+view_reputation()
+}
+
+
+class reputation{
+reputation : int
+view_social_rating()
+view_work_rating()
+view_amount_of_friends()
+ask_for_promotion()
+ask_worker_to_follow_you()
+}
+
+
+class social_actions{
+work_rating : int
+verbal_jousting()
+photobomb()
+prank()
+theft()
+complement()
+}
+
+class work_actions{
+work_rating : int
+call_meeting()
+do_paper_work()
+research()
+}
+
+class friends{
+amount_of_frinds : int
+ask_to_stop_following()
+}
+
+
+
+
+social_standing <|-- reputation
+reputation <|-- work_actions
+reputation <|-- social_actions
+reputation <|-- friends
+
+standing <|-- level
+standing <|-- social_standing
+standing <|-- stats
+
+
+level -- tasks
+level -- social_standing
+
+
+@enduml
