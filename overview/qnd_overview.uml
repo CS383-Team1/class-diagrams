@@ -39,7 +39,11 @@ class "State" {
 + selectRace()
 + selectMode()
 }
-Overworld "Holds" -down- Equipment
-Equipment "Used For" -down- Combat
-Combat "Leads To" -down- Advancement
-Advancement "Changes" -down- State
+
+State -down-|> Overworld
+State -down-|> Equipment
+State -down-|> Combat
+Overworld -right-|> Equipment
+Equipment -right-|> Combat
+Combat -right-|> Advancement
+Advancement -up-|> State
