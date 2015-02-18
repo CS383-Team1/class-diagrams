@@ -84,9 +84,10 @@ ask_to_stop_following()
 
 
 Social_standing <|-- Reputation
-Reputation <|-- Work_actions
-Reputation <|-- Social_actions
-Reputation <|-- Friends
+
+Reputation -- Work_actions
+Reputation -- Social_actions
+Reputation -- Friends
 
 Standing <|-- Level
 Standing <|-- Social_standing
