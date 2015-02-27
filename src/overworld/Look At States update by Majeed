@@ -1,0 +1,36 @@
+@startuml
+title Look at Stats 
+hide circles
+legend left
+	Created by: Abdulmajeed Alotaibi
+	Reviewed: 
+
+	the stat for player that can be seen
+        by the player.
+
+	
+endlegend
+
+class Stats{
+        HP : Integer
+	Caffeine : Integer
+	Speed : Integer
+}  
+
+class Levelup{
+        HP: Hp get full when level up
+        Caffeine : Caffeine get full when level up
+}
+
+class Combateffect {
+        HP
+        Caffeine
+}   
+note left 
+    HP and Caffeine changed when the player got some
+    damage or use potion.
+end note
+
+Stats <-Up- Levelup
+Stats <-Up- Combateffect 
+@enduml
