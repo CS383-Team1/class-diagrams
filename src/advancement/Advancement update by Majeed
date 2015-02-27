@@ -1,0 +1,105 @@
+@startuml
+
+title Advancement
+hide circles
+
+legend left
+	Authored: Tyler Wittreich
+	Reviewed: Mason Fabel
+
+	External classes:
+
+endlegend
+
+
+
+
+class Standing {
+view_standings()
+update_standings()
+standing : int
+}
+
+
+
+class Stats{
+view_stats()
+View_stats_boost()
+Increase_stats()
+stats : int
+}
+
+class Level {
+level : int
+view_level()
+update_level()
+}
+
+
+
+class Tasks{
+view_task_progression()
+view_task_requirements()
+Progression : int
+}
+
+class Social_standing{
+social standing : string
+view_reputation()
+}
+
+
+class Reputation{
+reputation : int
+view_social_rating()
+view_work_rating()
+view_amount_of_friends()
+ask_for_promotion()
+ask_worker_to_follow_you()
+}
+
+note left  
+    reputation is a variable that 
+    effected by what the player do in the game.
+end note
+
+class Social_actions{
+work_rating : int
+verbal_jousting()
+photobomb()
+prank()
+theft()
+complement()
+}
+
+class Work_actions{
+work_rating : int
+call_meeting()
+do_paper_work()
+research()
+}
+
+class Friends{
+amount_of_frinds : int
+ask_to_stop_following()
+}
+
+
+
+
+Social_standing <|-- Reputation
+
+Reputation <-- Work_actions
+Reputation <-- Social_actions
+Reputation <-- Friends
+
+Standing <|-- Level
+Standing <|-- Social_standing
+Standing <|-- Stats
+
+
+Level <-- Tasks
+Level <-- Social_standing
+
+
+@enduml
