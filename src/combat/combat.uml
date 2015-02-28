@@ -1,5 +1,5 @@
 @startuml
-hide circle
+skinparam monochrome true
 skinparam shadowing false
 
 title Combat Subsystem Class Diagram
@@ -10,65 +10,72 @@ legend left
 	External Classes: Environment, Inventory, Player
 
 	Definitions:
-	<i>Uses</i> - Class A <i>uses</i> class B when A calls public 
-		methods of B in order to query the state of B, and then
-		uses that information to influence the behaviour of A.
-	<i>Commands</i> - Class A <i>commands</i> class B when B queries
-		A to determine what action is taken.
+	<i>Uses</i> - Class A <i>uses</i> class B when A calls public methods of B in order to query the state of B, and then uses
+		that information to influence the behaviour of A.
+	<i>Commands</i> - Class A <i>commands</i> class B when B queries A to determine what action is taken.
+	<i>Creates</i> - Class A <i>creates</i> class B when A instantiates a new instance of class B.
 endlegend
+
+class CombatManager {
+	List<Player> participants
+	Combat combat
+}
+CombatManager *-down- "1" Combat
 
 class Combat {
 	reward : Inventory
 	turn()
 }
-Combat "2" *-down- Combatants
+Combat *-down- "2" Combatants
 Combat -right-> Environment : uses
+Combat *-right- "1" EnemyCombatantFactory
+
+class Environment <<external>>
 
 class Combatants {
-	move()
+	List<Combatant> members
 }
-Combatants "*" o-down- Combatant
+Combatants o-down- "*" Combatant
 
-class Combatant {
+abstract class Combatant {
 	HP : Integer
 	Caffeine : Integer
 	Speed : Integer
 	move()
 }
-Combatant "1" *-down- Inventory
-Combatant "1" *-down- MoveList
-
-
-class HumanCombatant
-HumanCombatant -left-|> Combatant
-HumanCombatant -right-|> Player
-HumanCombatant -down-> NPCCombatant : commands
+Combatant *-down- "1" Inventory
+Combatant *-down- "1" MoveList
 
 class Player <<external>>
+Player -left-|> Combatant
+Player -down-> NPCCombatant : commands
 
-class AICombatant
-AICombatant -left-|> Combatant
-
-class EnemyCombatant
-EnemyCombatant -up-|> AICombatant
+abstract class AICombatant
+AICombatant -up-|> Combatant
 
 class NPCCombatant {
 	command()
 }
-NPCCombatant -up-|> AICombatant
+NPCCombatant -left-|> AICombatant
+
+class EnemyCombatantFactory {
+	Combatants : create()
+}
+EnemyCombatantFactory -down-> Player : uses
+EnemyCombatantFactory -down-> EnemyCombatant : creates
+EnemyCombatantFactory -right-> Environment : uses
+
+class EnemyCombatant
+EnemyCombatant -up-|> AICombatant
 
 class Inventory <<external>>
 
 class MoveList {
 	default : Move
 }
-MoveList "1..n" o-down- Move
+MoveList o-down- "1..n" Move
 MoveList -right-> Inventory : uses
 
-
 class Move
-
-
-class Environment <<external>>
 
 @enduml
