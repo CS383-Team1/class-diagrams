@@ -5,7 +5,7 @@ skinparam shadowing false
 title Combat Subsystem Class Diagram
 legend left
 	Authored: Mason Fabel
-	Reviewed: Tessa Saul
+	Reviewed: Robin Rakowski
 
 	External Classes: Environment, Inventory, Player
 
@@ -24,10 +24,11 @@ CombatManager *-down- "1" Combat
 
 class Combat {
 	Inventory : reward
-	Combatants : Allies
-	Combatants : Enemies
+	Combatants : allies
+	Combatants : enemies
 	turn()
 }
+Combat *-left- "1" Inventory
 Combat *-down- "2" Combatants
 Combat -right-> Environment : uses
 Combat *-right- "1" EnemyCombatantFactory
@@ -40,15 +41,17 @@ class Combatants {
 Combatants o-down- "*" Combatant
 
 abstract class Combatant {
-	Integer : HP
-	Integer : Caffeine
-	Integer : Speed
+	Integer : hp
+	Integer : caffeine
+	Integer : speed
 	move()
 }
 Combatant *-down- "1" Inventory
 Combatant *-down- "1" MoveList
 
-class Player <<external>>
+class Player <<external>> {
+	List<NPCCombatant> allies
+}
 Player -left-|> Combatant
 Player -down-> NPCCombatant : commands
 
@@ -56,6 +59,7 @@ abstract class AICombatant
 AICombatant -up-|> Combatant
 
 class NPCCombatant {
+	Player leader
 	command()
 }
 NPCCombatant -left-|> AICombatant

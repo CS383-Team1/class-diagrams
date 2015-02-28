@@ -1,0 +1,104 @@
+@startuml
+skinparam monochrome true
+skinparam shadowing false
+
+title Combat Subsystem Sequence Diagram
+legend left
+	Authored: Mason Fabel
+	Reviewed:
+endlegend
+
+participant CombatManager
+participant Combat
+participant Combatants
+participant Combatant
+participant Player
+participant Move
+participant MoveList
+participant Inventory
+participant Environment
+participant EnemyCombatantFactory
+participant EnemyCombatant
+
+== Instantiation ==
+
+[--> CombatManager : instantiate
+activate CombatManager
+
+CombatManager --> Combat
+activate Combat
+
+Combat --> Combatants : instantiate Combat.allies
+activate Combatants
+
+Combatants --> Player : instantiate from CombatManager.participants
+activate Player
+deactivate Player
+Player --> Combatants
+
+... Repeat for each CombatManager.participants ...
+
+Combatants --> NPCCombatant : instantiate
+activate NPCCombatant
+deactivate NPCCombatant
+NPCCombatant --> Combatants
+deactivate Combatants
+
+... Repeat for each Player.ally ...
+
+Combatants --> Combat
+
+Combat --> Combatants : instantiate Comabt.enemies
+activate Combatants
+
+Combatants --> EnemyCombatantFactory : create()
+activate EnemyCombatantFactory
+
+EnemyCombatantFactory --> Player : get level and party status
+Player --> EnemyCombatantFactory
+EnemyCombatantFactory --> Environment : get enemy types and spawn rates
+Environment --> EnemyCombatantFactory
+EnemyCombatantFactory --> EnemyCombatant : instantiate EnemyCombatant
+activate EnemyCombatant
+deactivate EnemyCombatant
+EnemyCombatant --> EnemyCombatantFactory
+deactivate EnemyCombatantFactory
+
+... Repeat as appropriate ...
+
+EnemyCombatantFactory --> Combatants
+
+deactivate Combatants
+Combatants --> Combat
+
+deactivate Combat
+Combat --> CombatManager
+
+== Main Combat ==
+
+CombatManager --> Combat : Combat.turn()
+activate Combat
+
+Combat --> Combatant : Combatant.move()
+activate Combatant
+
+Combatant --> MoveList : getMove()
+activate MoveList
+
+MoveList --> Inventory : Add Move objects to MoveList as specifies by Items in Inventory
+Inventory --> MoveList
+
+deactivate MoveList
+MoveList --> Combatant : Move
+
+deactivate Combatant
+Combatant --> Combat
+
+deactivate Combat
+
+... Repeat for each Combatant in the union of Combat.allies and Combat.enemies in descending order of Combatant.speed ...
+
+Combat --> CombatManager
+deactivate CombatManager
+
+@enduml
