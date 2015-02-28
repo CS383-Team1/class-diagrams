@@ -23,7 +23,9 @@ class CombatManager {
 CombatManager *-down- "1" Combat
 
 class Combat {
-	reward : Inventory
+	Inventory : reward
+	Combatants : Allies
+	Combatants : Enemies
 	turn()
 }
 Combat *-down- "2" Combatants
@@ -38,9 +40,9 @@ class Combatants {
 Combatants o-down- "*" Combatant
 
 abstract class Combatant {
-	HP : Integer
-	Caffeine : Integer
-	Speed : Integer
+	Integer : HP
+	Integer : Caffeine
+	Integer : Speed
 	move()
 }
 Combatant *-down- "1" Inventory
@@ -71,7 +73,7 @@ EnemyCombatant -up-|> AICombatant
 class Inventory <<external>>
 
 class MoveList {
-	default : Move
+	Move : default
 }
 MoveList o-down- "1..n" Move
 MoveList -right-> Inventory : uses
