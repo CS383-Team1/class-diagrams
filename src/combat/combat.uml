@@ -23,9 +23,9 @@ class CombatManager {
 CombatManager *-down- "1" Combat
 
 class Combat {
-	Inventory : reward
-	Combatants : allies
-	Combatants : enemies
+	Inventory reward
+	Combatants allies
+	Combatants enemies
 	turn()
 }
 Combat *-left- "1" Inventory
@@ -41,9 +41,9 @@ class Combatants {
 Combatants o-down- "*" Combatant
 
 abstract class Combatant {
-	Integer : hp
-	Integer : caffeine
-	Integer : speed
+	Integer hp
+	Integer caffeine
+	Integer speed
 	move()
 }
 Combatant *-down- "1" Inventory
@@ -65,7 +65,7 @@ class NPCCombatant {
 NPCCombatant -left-|> AICombatant
 
 class EnemyCombatantFactory {
-	Combatants : create()
+	Combatants create()
 }
 EnemyCombatantFactory -down-> Player : uses
 EnemyCombatantFactory -down-> EnemyCombatant : creates
@@ -77,7 +77,7 @@ EnemyCombatant -up-|> AICombatant
 class Inventory <<external>>
 
 class MoveList {
-	Move : default
+	Move default
 }
 MoveList o-down- "1..n" Move
 MoveList -right-> Inventory : uses
