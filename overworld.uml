@@ -5,7 +5,7 @@ skinparam shadowing false
 title Overworld Subsystem Class Diagram
 legend left
         Authored: Abdulmajeed Alotaibi, Mason Fabel
-        Reviewed:
+        Reviewed: Tessa Saul
 
         External Classes: CombatManager
 endlegend
