@@ -7,9 +7,7 @@ legend left
 	Authored: Mason Fabel
 	Reviewed: Tessa Saul
 
-	External Classes: Item, Player
-
-	Definitions:
+	External Classes: Inventory, Item, Player
 endlegend
 
 class Player <<external>> {

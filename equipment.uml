@@ -8,12 +8,6 @@ legend left
 	Reviewed: Tessa Saul
 
 	External Classes: Player
-
-	Definitions:
-	<i>Belongs</i> - Class A <i>belongs</i> to class B when A is a member of a category defined by B.
-	<i>Composed</i> - Class A is <i>composed</i> of class B when A must consume some number of instances of
-		B in order to be instantiated.
-        <i>Creates</i> - Class A <i>creates</i> class B when A instantiates a new instance of class B.
 endlegend
 
 class Player <<external>> {

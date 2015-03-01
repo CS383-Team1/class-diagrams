@@ -8,12 +8,6 @@ legend left
 	Reviewed: Robin Rakowski
 
 	External Classes: Environment, Inventory, Player
-
-	Definitions:
-	<i>Uses</i> - Class A <i>uses</i> class B when A calls public methods of B in order to query the state of B, and then uses
-		that information to influence the behaviour of A.
-	<i>Commands</i> - Class A <i>commands</i> class B when B queries A to determine what action is taken.
-	<i>Creates</i> - Class A <i>creates</i> class B when A instantiates a new instance of class B.
 endlegend
 
 class CombatManager {
