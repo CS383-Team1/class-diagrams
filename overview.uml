@@ -18,16 +18,7 @@ class GameManager {
 	host()
 	join()
 }
-GameManager *-down- "1" StateManager
 GameManager *-down- "1" AreaManager
-
-class StateManager {
-	State current
-	List<State> states
-}
-StateManager o-down- "1..*" State
-
-abstract class State
 
 class AreaManager <<external>> {
 	List<Area> areas
