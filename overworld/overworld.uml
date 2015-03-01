@@ -41,6 +41,8 @@ class Player {
 	Integer speed
 	Equipment equipment
 	Inventory inventory
+	NetworkManager network
+	QuestManager quests
 	List<Craft> crafts
 	List<NPC> allies
 	List<NPCCombatant> allies

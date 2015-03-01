@@ -4,8 +4,10 @@ skinparam shadowing false
 
 title Subsystem Overview Class Diagram
 legend left
-	Authored: team ^teamname
-	Reviewed: <i>none</i>
+	Authored: Mason Fabel
+	Reviewed:
+
+	External Classes: AreaManager
 
 	Definitions:
 	<i>Holds</i> - Class A <i>holds</i> class B when class A is required in order to access an object of class B. requesting read-write access.
@@ -15,33 +17,27 @@ legend left
 
 endlegend
 
-class State {
-	selectClass()
-	selectRace()
-	selectMode()
-}
-State -down-> Overworld : Holds
-State -down-> Equipment : Holds
-
-class Overworld{
-	accessMenuOptions()
-}
-
-class Equipment {
-	closeGame()
-	newGame()
-	loadGame()
-	joinGame()
-}
-Equipment -right-> Combat : Used For
-
-class Combat
-Combat -right-> Advancement : Leads To
-
-class Advancement {
+class GameManager {
+	StateManager states
+	AreaManager areas
 	save()
 	load()
+	host()
+	join()
 }
-Advancement -up-> State : Changes
+GameManager *-down- "1" StateManager
+GameManager *-down- "1" AreaManager
+
+class StateManager {
+	State current
+	List<State> states
+}
+StateManager o-down- "1..*" State
+
+abstract class State
+
+class AreaManager <<external>> {
+	List<Area> areas
+}
 
 @enduml
