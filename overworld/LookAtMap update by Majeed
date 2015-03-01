@@ -11,13 +11,17 @@ legend left
 	
 endlegend
 
-class Map{ 
-        PlayerLocation : (X,Y)
-	QuestLocation : (X,Y)
-	EnterMapLocation : (X,Y)
-        ExitMapLocation : (X,Y)
-        SavePointLocation : (X,Y)
-        DisplayMap()    
+
+
+class Map{
+
+        DisplayMap()
+        PlayerLocation
+	QuestLocation 
+	EnterMapLocation 
+        ExitMapLocation 
+        SavePointLocation 
+            
 } 
 note left 
         SavePoint might be removed and 
@@ -26,20 +30,20 @@ end note
 
 
 class MiniMap{
-        PlayerLocation : (X,Y)
-	QuestLocation : (X,Y)
-	EnterMapLocation : (X,Y)
-        ExitMapLocation : (X,Y)
-        SavePointLocation : (X,Y)
+        PlayerLocation
+	QuestLocation 
+	EnterMapLocation 
+        ExitMapLocation 
+        SavePointLocation 
 } 
 
 
 class WorldMap{
-        PlayerLocation : (X,Y)
-	QuestLocation : (X,Y)
-	EnterMapLocation : (X,Y)
-        ExitMapLocation : (X,Y)
-        SavePointLocation : (X,Y)
+        PlayerLocation
+	QuestLocation 
+	EnterMapLocation 
+        ExitMapLocation 
+        SavePointLocation 
 } 
 
 Map <-Up- MiniMap
@@ -48,6 +52,3 @@ Map <-Up- WorldMap
 
 
 @enduml
-
-
-
