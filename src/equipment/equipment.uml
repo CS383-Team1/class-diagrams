@@ -1,79 +1,62 @@
 @startuml
-title Equipment
-hide circles
+skinparam monochrome true
+skinparam shadowing false
 
+title Equipment Subsystem Class Diagram
 legend left
-	Authored: Casey Blair
-	Reviewed: Ronald Rodriguez
+	Authored: Mason Fabel
+	Reviewed:
 
 	External Classes: Player
 
+	Definitions:
+	<i>Belongs</i> - Class A <i>belongs</i> to class B when A is a member of a category defined by B.
+	<i>Composed</i> - Class A is <i>composed</i> of class B when A must consume some number of instances of
+		B in order to be instantiated.
+        <i>Creates</i> - Class A <i>creates</i> class B when A instantiates a new instance of class B.
 endlegend
-class Player <<external>>
+
+class Player <<external>> {
+	List<Craft> crafts
+	Inventory inventory
+	Equipment equipment
+}
+Player o-right- "0..*" Craft
+Player *-down- "1" Equipment
+Player *-down- "1" Inventory
+
+class Craft {
+	Integer skill
+}
 
 class Inventory {
-selectItem()
-moveItem()
-equipItem()
-removeItem()
-maxItems : integer
+	Integer size
+	Integer maxSize
+	Item[] items
+	
 }
+Inventory o-down- "0..Inventory.maxSize" Item
 
-class Item{
-acquire()
-sell()
-buy()
-trade()
-name : String
-description : String
-itemLevel : int
-playerLevelRequirement : int
+class Equipment {
 }
+Equipment -right-|> Inventory
 
-class Weapon{
-upgrade()
-reloadAmmo()
-damage : int
-durability : int
-ammoNecessary : boolean
-ammo : int
+abstract class Item
+
+class CraftedItemFactory{
+	Craft type
+	Item tool
+	List<Material> materials
+	CraftedItem craft()
 }
+CraftedItemFactory -up-> Craft : belongs
+CraftedItemFactory -down-> Material : composed
+CraftedItemFactory -down-> CraftedItem : creates
 
-class WorkProject{
-turnInProject()
-workOnProject()
-abandonProject()
-percentComplete : integer
-}
+class Material
+Material -left-|> Item
 
-
-class SupportItems{
-type : String
-use()
-}
-
-class CraftedItem{
-create()
-otherRequiredMaterials : List
-requiredTools : List
-skillNecessary : boolean
-requiredSkill : String
-}
-
-class Material{
-materialType : String
-toolRequired : boolean
-toolNeeded : String
-}
-
-Player "0..1" *-- "1..1" Inventory
-Inventory o-- "0..*" Item
-Item <|-- Weapon
-Item <|-- WorkProject
-Item <|-- SupportItems
-Item  <|-right- CraftedItem
-Item <|-down- Material
-CraftedItem "0..1" *-- "2..*" Material
-
+abstract class CraftedItem
+CraftedItem -up-|> Item
 
 @enduml
