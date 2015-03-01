@@ -13,6 +13,7 @@ legend left
 endlegend
 
 class Player <<external>> {
+	Inventory inventory
 	List<NPC> allies
 }
 Player -down-|> Entity
