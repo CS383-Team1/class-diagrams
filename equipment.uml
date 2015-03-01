@@ -49,7 +49,7 @@ class CraftedItemFactory{
 	List<Material> materials
 	CraftedItem craft()
 }
-CraftedItemFactory -up-> Craft : belongs
+CraftedItemFactory -up-> Craft : uses
 CraftedItemFactory -down-> Material : composed
 CraftedItemFactory -down-> CraftedItem : creates
 
