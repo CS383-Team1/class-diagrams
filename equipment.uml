@@ -50,11 +50,11 @@ class CraftedItemFactory{
 	CraftedItem craft()
 }
 CraftedItemFactory -up-> Craft : uses
-CraftedItemFactory -down-> Material : composed
 CraftedItemFactory -down-> CraftedItem : creates
 
 class Material
 Material -left-|> Item
+Material -up-> CraftedItemFactory : composes
 
 abstract class CraftedItem
 CraftedItem -up-|> Item
