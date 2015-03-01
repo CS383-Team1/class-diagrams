@@ -5,7 +5,7 @@ skinparam shadowing false
 title Advancement Subsystem Class Diagram
 legend left
 	Authored: Mason Fabel
-	Reviewed:
+	Reviewed: Tessa Saul
 
 	External Classes: Item, Player
 
