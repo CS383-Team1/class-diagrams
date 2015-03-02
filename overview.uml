@@ -2,7 +2,7 @@
 skinparam monochrome true
 skinparam shadowing false
 
-title Subsystem Overview Class Diagram
+title Overview Subsystem Class Diagram
 legend left
 	Authored: Mason Fabel
 	Reviewed: Tessa Saul
